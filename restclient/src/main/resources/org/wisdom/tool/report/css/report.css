@@ -1,0 +1,180 @@
+/*!
+ * Copyright 2017-present, Yudong (Dom) Wang
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body
+{
+    width:1500px;
+    font-family:'trebuchet MS', 'Lucida sans', Arial;
+    font-size:14px;
+    color:#444;
+}
+
+table
+{
+    border-collapse:collapse;
+    border-spacing:0;
+    width:100%;
+}
+
+h1
+{
+    text-align:center;
+    margin:50px auto;
+}
+
+h2
+{
+    text-align:center;
+    margin:50px auto;
+    font-style:italic;
+    color:#0B6AF6;
+}
+
+.wistool
+{
+    font-style:italic;
+    color:#0B6AF6;
+}
+
+.report
+{
+    border:solid #ccc 1px;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    -webkit-box-shadow:0 1px 1px #ccc;
+    -moz-box-shadow:0 1px 1px #ccc;
+    box-shadow:0 1px 1px #ccc;
+}
+
+.report tr:hover
+{
+    background:#fbf8e9;
+    -o-transition:all .1s ease-in-out;
+    -webkit-transition:all .1s ease-in-out;
+    -moz-transition:all .1s ease-in-out;
+    -ms-transition:all .1s ease-in-out;
+    transition:all .1s ease-in-out;
+}
+
+.report td,.report th
+{
+    border-left:1px solid #ccc;
+    border-top:1px solid #ccc;
+    text-align:left;
+    padding:10px;
+}
+
+.report th
+{
+    background-color:#dce9f9;
+    background-image:linear-gradient(top,#ebf3fc,#dce9f9);
+    -webkit-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    border-top:none;
+    text-shadow:0 1px 0 rgba(255,255,255,.5);
+    white-space:nowrap;
+}
+
+.report td:first-child,.report th:first-child
+{
+    border-left:none;
+}
+
+.report th:first-child
+{
+    -moz-border-radius:6px 0 0;
+    -webkit-border-radius:6px 0 0 0;
+    border-radius:6px 0 0 0;
+}
+
+.report th:last-child
+{
+    -moz-border-radius:0 6px 0 0;
+    -webkit-border-radius:0 6px 0 0;
+    border-radius:0 6px 0 0;
+}
+
+.report th:only-child
+{
+    -moz-border-radius:6px 6px 0 0;
+    -webkit-border-radius:6px 6px 0 0;
+    border-radius:6px 6px 0 0;
+}
+
+.report tr:last-child td:first-child
+{
+    -moz-border-radius:0 0 0 6px;
+    -webkit-border-radius:0 0 0 6px;
+    border-radius:0 0 0 6px;
+}
+
+.report tr:last-child td:last-child
+{
+    -moz-border-radius:0 0 6px;
+    -webkit-border-radius:0 0 6px 0;
+    border-radius:0 0 6px 0;
+}
+
+#container
+{
+    width:900px;
+    margin:50px auto;
+}
+
+#chart,#chartData,#tasks
+{
+    border:1px solid #333;
+}
+
+#chart
+{
+    display:block;
+    float:right;
+    cursor:pointer;
+    margin:0 0 50px;
+}
+
+#chartData,#tasks
+{
+    width:200px;
+    float:left;
+    border-collapse:collapse;
+    box-shadow:0 0 1em rgba(0,0,0,0.5);
+    -moz-box-shadow:0 0 1em rgba(0,0,0,0.5);
+    -webkit-box-shadow:0 0 1em rgba(0,0,0,0.5);
+    background-position:0 -100px;
+    margin:0 50px 0 0;
+}
+
+#tasks
+{
+    width:1300px;
+}
+
+#chartData,#tasks th
+{
+    text-align:left;
+    padding:.5em;
+}
+
+#chartData,#tasks td
+{
+    text-align:left;
+    padding:.5em;
+    cursor:pointer;
+}

@@ -1,0 +1,258 @@
+/*!
+ * Copyright 2017-present, Yudong (Dom) Wang
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html {
+  box-sizing: border-box;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin:0;
+  background: #fafafa;
+}
+
+span.param {
+    font-family: monospace;
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    white-space: nowrap;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre {
+    white-space: pre-wrap;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+    padding: 0 12px;
+    border-collapse: collapse;
+}
+
+table tbody tr td {
+    padding: 12px 0 0;
+    vertical-align: top;
+    font-size: 13px;
+    font-family: Open Sans,sans-serif;
+    color: #3b4151;
+}
+
+table thead tr td,table thead tr th {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(59,65,81,.1);
+    font-family: Open Sans,sans-serif;
+    color: #3b4151;
+}
+
+.tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 20px 0 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.tab li {
+    font-size: 12px;
+    min-width: 100px;
+    min-width: 90px;
+    padding: 0;
+    cursor: pointer;
+    font-family: Titillium Web,sans-serif;
+    color: #3b4151;
+}
+
+.tab li:first-of-type {
+    position: relative;
+    padding-left: 0;
+}
+
+.tab li:first-of-type:after {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    width: 1px;
+    height: 100%;
+    content: "";
+    background: rgba(0,0,0,.2);
+}
+
+.tab li.active {
+    font-weight: 700;
+}
+
+.api-description {
+    font-size: 16px;
+    line-height: 80px;
+    margin:20px auto;
+}
+
+.api_doc {
+    width:900px;
+    margin:50px auto;
+}
+
+.api-path{
+    font-size: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 10px;
+    font-family: Source Code Pro,monospace;
+    font-weight: 600;
+    color: #3b4151;
+}
+
+.api-title{
+    font-size: 13px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-family: Open Sans,sans-serif;
+    color: #3b4151;
+}
+
+.api-tab{
+    padding: 20px;
+}
+
+.api-tab-header{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 8px 20px;
+    min-height: 50px;
+    background: hsla(0,0%,100%,.8);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.api-tab-header h4 {
+    font-size: 14px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0;
+    font-family: Titillium Web,sans-serif;
+    color: #3b4151;
+}
+
+.api-summary{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.19);
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0,0,0,.19);
+}
+
+.api-item{
+    margin: 0 0 15px;
+    border-radius: 4px;
+}
+
+.api-item-post{
+    border: 1px solid #49cc90;
+    background: rgba(73,204,144,.1);
+}
+
+.api-item-put{
+    border: 1px solid #fca130;
+    background: rgba(252,161,48,.1);
+}
+
+.api-item-get{
+    border: 1px solid #61affe;
+    background: rgba(97,175,254,.1);
+}
+
+.api-item-delete{
+    border: 1px solid #f93e3e;
+    background: rgba(249,62,62,.1);
+}
+
+.api-detail-post{
+    border-top: 1px solid #49cc90;
+}
+
+.api-detail-put{
+    border-top: 1px solid #fca130;
+}
+
+.api-detail-get{
+    border-top: 1px solid #61affe;
+}
+
+.api-detail-delete{
+    border-top: 1px solid #f93e3e;
+}
+
+.api-method{
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 80px;
+    padding: 6px 15px;
+    text-align: center;
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    font-family: Titillium Web,sans-serif;
+    color: #fff;
+}
+
+.api-method-post{
+    background: #49cc90;
+}
+
+.api-method-put{
+    background: #fca130;
+}
+
+.api-method-get{
+    background: #61affe;
+}
+
+.api-method-delete{
+    background: #f93e3e;
+}
+
+.example{
+    display: none;
+}

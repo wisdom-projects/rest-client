@@ -1,0 +1,18 @@
+
+Usage: java -jar restclient-1.2.jar [-argument] [file]
+
+       Without argument will launch rest-client GUI
+
+       Without file will use default 'work/http_history.json'
+
+       -help     print this help message
+       E.g.: java -jar restclient-1.2.jar -help
+       
+       -gui      launch rest-client GUI
+       E.g.: java -jar restclient-1.2.jar -gui sample/http_history.json
+       
+       -apitest  test API
+       E.g.: java -jar restclient-1.2.jar -apitest sample/http_history.json
+       
+       -apidoc   create API documentation
+       E.g.: java -jar restclient-1.2.jar -apidoc sample/http_history.json
