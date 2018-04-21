@@ -17,14 +17,14 @@ _**E-mail**: wisdomtool@outlook.com_
 
 
 # How it works
-#### 1. Download JAR: [*`restclient-1.2.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools/restclient-1.2.jar);
-   下载JAR包[`restclient-1.2.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools/restclient-1.2.jar)；
+#### 1. Download JAR: [*`restclient.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools);
+   下载JAR包[`restclient.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools)；
 
 #### 2. Install `Java 1.7` or higher version;
    使用前请先安装`Java 1.7`或者更高版本；
 
-#### 3. Double click [`restclient-1.2.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools/restclient-1.2.jar) to launch GUI.
-   双击[`restclient-1.2.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools/restclient-1.2.jar)即可运行工具。
+#### 3. Double click [`restclient.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools) to launch GUI.
+   双击[`restclient.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools)即可运行工具。
 
 ![image](https://github.com/Wisdom-Projects/rest-client/blob/master/images/Image_1.png)
 
