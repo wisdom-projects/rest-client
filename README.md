@@ -16,7 +16,7 @@ _**Author**: Yudong (Dom) Wang_
 _**E-mail**: wisdomtool@outlook.com_
 
 
-# Steps
+# How it works
 #### 1. Download JAR: [*`restclient-1.2.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools/restclient-1.2.jar);
    下载JAR包[`restclient-1.2.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools/restclient-1.2.jar)；
 
