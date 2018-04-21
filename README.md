@@ -46,7 +46,7 @@ _**E-mail**: wisdomtool@outlook.com_
 
 ![image](https://github.com/Wisdom-Projects/rest-client/blob/master/images/Image_10.png)
 
-# Donations
+# Donate
 如果 **Wisdom RESTClient** 工具对您帮助很大，并且您很愿意支持工具的后续开发和维护，您可以扫下方二维码随意打赏，就当是请我喝杯茶或是咖啡，将不胜感激。 **♥ 谢谢 ♥**
 
 If the **Wisdom RESTClient** helps you a lot, and you would like to support this tool's further development and the continuous maintenance of this tool. You can sweep the following QR code free to donate me, which asked me to have a cup of tea or coffee. Your donation is highly appreciated. **♥ Thank you ♥** <br/>
