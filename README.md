@@ -56,5 +56,5 @@ If the **Wisdom RESTClient** helps you a lot, and you would like to support this
 ![Donate by pay](https://github.com/Wisdom-Projects/rest-client/blob/master/images/donate_pay.png)
 
 # Support
-Please refer to [**the blog**](http://www.cnblogs.com/witpool).<br/>
-请参考[**博客**](http://www.cnblogs.com/witpool)。
+Please refer to [**the blog**](http://www.cnblogs.com/witpool) for more details.<br/>
+请参考[**博客**](http://www.cnblogs.com/witpool)获得更多详情。
