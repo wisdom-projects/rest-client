@@ -1,4 +1,4 @@
-# What is wisdom restclient
+# What is wisdom RESTClient
 **Wisdom RESTClient** is developed by individual.  
 
 This tool supports automated testing REST API, producing exquisite report, and generating exquisite REST API documentation based on historical cases. 
