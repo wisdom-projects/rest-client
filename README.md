@@ -9,13 +9,6 @@ If this tool helps you a lot, please **bestow a ★star★**. Thanks!
 它可以自动化测试REST API并生成精美的测试报告，同时基于测试过的历史数据，可以生成精美的REST API文档。
 如果您认为工具很有帮助，请您**恩赐一颗 ★星★**，谢谢！
 
-Please contact by e-mail for any insightful feedbacks, feature requests and bugs.  
-
-_**Author**: Yudong (Dom) Wang_ 
-
-_**E-mail**: wisdomtool@outlook.com_
-
-
 # How it works
 #### 1. Download JAR: [*`restclient.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools);
    下载JAR包[`restclient.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools)；
@@ -57,4 +50,6 @@ If the **Wisdom RESTClient** helps you a lot, and you would like to support this
 
 # Support
 Please refer to [**the blog**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/) for more details.<br/>
-请参考[**博客**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/)获得更多详情。
+For more details about restclient, please visit [**Wisdom**](http://121.196.199.47/index.html).<br/>
+请参考[**博客**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/)获得更多详情。<br/>
+更多的restclient详情，请访问[**Wisdom**](http://121.196.199.47/index.html)。
