@@ -50,6 +50,6 @@ If the **Wisdom RESTClient** helps you a lot, and you would like to support this
 
 # Support
 Please refer to [**the blog**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/) for more details.<br/>
-For more details about restclient, please visit [**Wisdom**](http://121.196.199.47/index.html).<br/>
+For more details about **Wisdom RESTClient**, please visit [**Wisdom**](http://121.196.199.47/index.html).<br/>
 请参考[**博客**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/)获得更多详情。<br/>
-更多的restclient详情，请访问[**Wisdom**](http://121.196.199.47/index.html)。
+更多的**Wisdom RESTClient**详情，请访问[**Wisdom**](http://121.196.199.47/index.html)。
