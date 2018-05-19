@@ -49,7 +49,7 @@ If the **Wisdom RESTClient** helps you a lot, and you would like to support this
 ![Donate by pay](https://github.com/Wisdom-Projects/rest-client/blob/master/images/donate_pay.png)
 
 # Support
-Please refer to [**the blog**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/) for more help.<br/>
+Please refer to [**the blogs**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/) for more demos and help.<br/>
 For more details about **Wisdom RESTClient**, please visit [**Wisdom**](http://www.wdom.net).<br/><br/>
-请参考[**博客**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/)获得更多帮助。<br/>
+请参考[**博客文章**](http://www.cnblogs.com/witpool/tag/Wisdom%20RESTClient/)获得更多的使用示例和帮助。<br/>
 更多的**Wisdom RESTClient**详情，请访问[**Wisdom**](http://www.wdom.net)。
