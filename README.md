@@ -2,12 +2,12 @@
 **Wisdom RESTClient** is developed by individual.  
 
 This tool supports automated testing REST API, producing exquisite report, and generating exquisite REST API documentation based on historical cases. 
-If this tool helps you a lot, please **bestow a ★star★**. Thanks!
+If this tool helps you a lot, please **give it a ★star★**. Thanks!
 
 **Wisdom RESTClient** 是由个人所开发的一款自动化测试REST API的工具。
 
 它可以自动化测试REST API并生成精美的测试报告，同时基于测试过的历史数据，可以生成精美的REST API文档。
-如果您认为工具很有帮助，请您**恩赐一颗 ★星★**，谢谢！
+如果您认为工具很有帮助，请您**给一颗 ★星★**，谢谢！
 
 # How it works
 #### 1. Download JAR: [*`restclient.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools);
