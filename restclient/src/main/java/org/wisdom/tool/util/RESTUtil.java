@@ -72,7 +72,7 @@ import net.htmlparser.jericho.SourceFormatter;
 * @ClassName: RESTUtil 
 * @Description: Rest utility 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
 * @Version: Wisdom RESTClient V1.2 
 */

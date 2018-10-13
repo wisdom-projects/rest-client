@@ -64,7 +64,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @Class Name : HistFrame 
 * @Description: Historical Record Frame 
 * @Author     : Dom Wang 
-* @Email      : wisdomtool@outlook.com
+* @Email      : wisdomtool@qq.com
 * @Date       : Mar 4, 2018 8:28:38 PM 
 * @Version    : Wisdom RESTClient V1.2 
 */

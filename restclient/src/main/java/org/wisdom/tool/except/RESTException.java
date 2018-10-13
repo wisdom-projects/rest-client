@@ -24,7 +24,7 @@ import org.wisdom.tool.model.Results;
 * @ClassName: RESTException 
 * @Description: REST exception
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-25 PM 8:40:33 
 * @Version: Wisdom RESTClient V1.2 
 */

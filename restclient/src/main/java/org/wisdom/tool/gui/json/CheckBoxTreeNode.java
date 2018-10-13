@@ -22,7 +22,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 * @Class Name : CheckBoxTreeNode 
 * @Description: Tree node for check box 
 * @Author     : Dom Wang 
-* @Email      : wisdomtool@outlook.com
+* @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 3:53:19 PM 
 * @Version    : Wisdom RESTClient V1.2 
 */

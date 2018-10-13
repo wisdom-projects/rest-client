@@ -31,7 +31,7 @@ import org.wisdom.tool.gui.rsp.RspView;
  * @ClassName: RESTView 
  * @Description: Rest view frame
  * @Author: Yudong (Dom) Wang
- * @Email: wisdomtool@outlook.com 
+ * @Email: wisdomtool@qq.com 
  * @Date: Jan 20, 2017 12:30:29 PM 
  * @Version: Wisdom RESTClient V1.2 
  */

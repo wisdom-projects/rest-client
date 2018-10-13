@@ -56,7 +56,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @ClassName: APIDocUtil 
 * @Description: API document utility 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-7-17 PM 1:11:29 
 * @Version: Wisdom RESTClient V1.2 
 */

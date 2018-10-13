@@ -25,7 +25,7 @@ import javax.net.ssl.X509TrustManager;
 * @ClassName: RESTTrustManager 
 * @Description: REST trust manager 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: Jul 26, 2017 5:32:58 PM 
 * @Version: Wisdom RESTClient V1.2 
 */

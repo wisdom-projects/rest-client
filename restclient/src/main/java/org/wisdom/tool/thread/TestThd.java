@@ -22,7 +22,7 @@ import org.wisdom.tool.util.TestUtil;
 * @ClassName: TestThd 
 * @Description: Test thread 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-18 PM 9:41:08  
 * @Version: Wisdom RESTClient V1.2 
 */

@@ -19,7 +19,7 @@ package org.wisdom.tool.model;
 * @ClassName: Results 
 * @Description: HTTP test results 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2016-12-18 PM 3:30:01 
 * @Version: Wisdom RESTClient V1.2 
 */

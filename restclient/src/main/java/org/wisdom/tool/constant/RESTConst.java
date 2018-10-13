@@ -19,7 +19,7 @@ package org.wisdom.tool.constant;
 * @ClassName: RESTConst 
 * @Description: Rest constants 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
 * @Version: Wisdom RESTClient V1.2 
 */

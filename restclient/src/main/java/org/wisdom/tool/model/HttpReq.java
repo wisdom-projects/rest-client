@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 * @ClassName: HttpReq 
 * @Description: HTTP request model 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
 * @Version: Wisdom RESTClient V1.2 
 */

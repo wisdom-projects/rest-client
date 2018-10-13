@@ -40,7 +40,7 @@ import org.wisdom.tool.util.TestUtil;
  * @ClassName: RESTMain 
  * @Description: Rest Main
  * @Author: Yudong (Dom) Wang
- * @Email: wisdomtool@outlook.com 
+ * @Email: wisdomtool@qq.com 
  * @Date: Jan 20, 2017 12:30:29 PM 
  * @Version: Wisdom RESTClient V1.2 
  */

@@ -23,7 +23,7 @@ import org.wisdom.tool.constant.RESTConst;
 * @Class Name : LoadThd 
 * @Description: Load historical data thread 
 * @Author     : Dom Wang 
-* @Email      : wisdomtool@outlook.com
+* @Email      : wisdomtool@qq.com
 * @Date       : Feb 3, 2018 8:00:34 PM 
 * @Version    : Wisdom RESTClient V1.2
 */

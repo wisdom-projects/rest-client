@@ -29,7 +29,7 @@ import javax.swing.plaf.ColorUIResource;
 * @Class Name : CheckBoxTreeLabel 
 * @Description: Tree label for check box 
 * @Author     : Dom Wang 
-* @Email      : wisdomtool@outlook.com
+* @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 4:43:42 PM 
 * @Version    : Wisdom RESTClient V1.2 
 */

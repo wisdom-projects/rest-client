@@ -54,7 +54,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 * @Class Name : JsonTree 
 * @Description: Json tree view 
 * @Author     : Dom Wang 
-* @Email      : wisdomtool@outlook.com
+* @Email      : wisdomtool@qq.com
 * @Date       : Feb 25, 2018 4:43:49 PM 
 * @Version    : Wisdom RESTClient V1.2 
 */

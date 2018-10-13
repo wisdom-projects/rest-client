@@ -31,7 +31,7 @@ import javax.swing.tree.TreeCellRenderer;
 * @Class Name : CheckBoxTreeCellRenderer 
 * @Description: Tree cell renderer for check box 
 * @Author     : Dom Wang 
-* @Email      : wisdomtool@outlook.com
+* @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 4:54:49 PM 
 * @Version    : Wisdom RESTClient V1.2 
 */

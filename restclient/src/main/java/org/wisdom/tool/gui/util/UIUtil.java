@@ -65,7 +65,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @ClassName: UIUtil 
 * @Description: UI Utility 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com
+* @Email: wisdomtool@qq.com
 * @Date: July 20, 2017 12:30:29 PM 
 * @Version: Wisdom RESTClient V1.2 
 */

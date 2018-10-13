@@ -51,7 +51,7 @@ import org.wisdom.tool.model.HttpRsp;
 * @ClassName: ReqView 
 * @Description: Request view panel 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
 * @Version: Wisdom RESTClient V1.2 
 */

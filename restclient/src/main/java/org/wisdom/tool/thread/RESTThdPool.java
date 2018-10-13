@@ -24,7 +24,7 @@ import org.wisdom.tool.constant.RESTConst;
 * @ClassName: RESTThdPool 
 * @Description: REST thread pool 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2017-07-18 PM 9:41:08 
 * @Version: Wisdom RESTClient V1.2 
 */

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 * @ClassName: Causes 
 * @Description: Test causes 
 * @Author: Yudong (Dom) Wang
-* @Email: wisdomtool@outlook.com 
+* @Email: wisdomtool@qq.com 
 * @Date: 2016-12-25 PM 8:21:08 
 * @Version: Wisdom RESTClient V1.2 
 */
