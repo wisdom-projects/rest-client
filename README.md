@@ -44,7 +44,7 @@ If this tool helps you a lot, please **give it a ★star★**. Thanks!
 
 If the **Wisdom RESTClient** helps you a lot, and you would like to support this tool's further development and the continuous maintenance of this tool. You can sweep the following QR code free to donate me, which asked me to have a cup of tea or coffee. Your donation is highly appreciated. **♥ Thank you ♥** <br/>
 
-[**♥ Donate ♥ by PayPal**](https://www.paypal.me/WisdomTool) , Alipay, WeChat Pay.
+**♥ Donate ♥ by Alipay, WeChat Pay**.
 
 ![Donate by pay](https://github.com/Wisdom-Projects/rest-client/blob/master/images/donate_pay.png)
 
