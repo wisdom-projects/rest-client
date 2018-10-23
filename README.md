@@ -1,13 +1,7 @@
 # What is rest-client
-**Wisdom rest-client** is developed by individual.  
+**Wisdom rest-client** is a tool supports automated testing REST API, producing exquisite report, and generating exquisite REST API documentation based on historical cases. If this tool helps you a lot, please **give one ★star★** to support it. Thanks!
 
-This tool supports automated testing REST API, producing exquisite report, and generating exquisite REST API documentation based on historical cases. 
-If this tool helps you a lot, please **give one ★star★** to support it. Thanks!
-
-**Wisdom RESTClient** 是由个人所开发的一款自动化测试REST API的工具。
-
-它可以自动化测试REST API并生成精美的测试报告，同时基于测试过的历史数据，可以生成精美的REST API文档。
-如果您认为工具很有帮助，请您**给予一颗 ★星★**支持一下，谢谢！
+**Wisdom rest-client** 一款自动化测试REST API的工具，它可以自动化测试REST API并生成精美的测试报告，同时基于测试过的历史数据，可以生成精美的REST API文档。如果您认为工具很有帮助，请您**给予一颗 ★星★**支持一下，谢谢！
 
 # How it works
 #### 1. Download JAR: [*`restclient.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools);
