@@ -1,5 +1,5 @@
-# What is RESTClient
-**Wisdom RESTClient** is developed by individual.  
+# What is rest-client
+**Wisdom rest-client** is developed by individual.  
 
 This tool supports automated testing REST API, producing exquisite report, and generating exquisite REST API documentation based on historical cases. 
 If this tool helps you a lot, please **give one ★star★** to support it. Thanks!
