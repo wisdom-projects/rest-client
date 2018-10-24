@@ -34,9 +34,9 @@
 ![image](https://github.com/Wisdom-Projects/rest-client/blob/master/images/Image_10.png)
 
 # Donate
-如果 **Wisdom RESTClient** 工具对您帮助很大，并且您很愿意支持工具的后续开发和维护，您可以扫下方二维码随意打赏，就当是请我喝杯茶或是咖啡，将不胜感激。 **♥ 谢谢 ♥**
+如果 **Wisdom rest-client** 工具对您帮助很大，并且您很愿意支持工具的后续开发和维护，您可以扫下方二维码随意打赏，就当是请我喝杯茶或是咖啡，将不胜感激。 **♥ 谢谢 ♥**
 
-If the **Wisdom RESTClient** helps you a lot, and you would like to support this tool's further development and the continuous maintenance of this tool. You can sweep the following QR code free to donate me, which asked me to have a cup of tea or coffee. Your donation is highly appreciated. **♥ Thank you ♥** <br/>
+If the **Wisdom rest-client** helps you a lot, and you would like to support this tool's further development and the continuous maintenance of this tool. You can sweep the following QR code free to donate me, which asked me to have a cup of tea or coffee. Your donation is highly appreciated. **♥ Thank you ♥** <br/>
 
 **♥ Donate ♥ by Alipay, WeChat Pay**.
 
@@ -46,4 +46,4 @@ If the **Wisdom RESTClient** helps you a lot, and you would like to support this
 Please refer to [**the blogs**](http://wdom.net:9000/tag/RESTClient) for more demos and help.<br/>
 For more details about **Wisdom RESTClient**, please visit [**Wisdom**](http://www.wdom.net).<br/><br/>
 请参考[**博客文章**](http://wdom.net:9000/tag/RESTClient)获得更多的使用示例和帮助。<br/>
-更多的**Wisdom RESTClient**详情，请访问[**Wisdom**](http://www.wdom.net)。
+更多的**Wisdom rest-client**详情，请访问[**Wisdom**](http://www.wdom.net)。
