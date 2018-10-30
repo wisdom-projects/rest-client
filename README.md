@@ -43,7 +43,7 @@ If the **wisdom rest-client** helps you a lot, and you would like to support thi
 ![Donate by pay](https://github.com/Wisdom-Projects/rest-client/blob/master/images/donate_pay.png)
 
 # Support
-Please refer to [**the blogs**](http://wdom.net:9000/tag/RESTClient) for more demos and help.<br/>
+Please refer to [**the blogs**](http://blog.wdom.net/tag/RESTClient) for more demos and help.<br/>
 For more details about **wisdom rest-client**, please visit [**Wisdom**](http://www.wdom.net).<br/><br/>
-请参考[**博客文章**](http://wdom.net:9000/tag/RESTClient)获得更多的使用示例和帮助。<br/>
+请参考[**博客文章**](http://blog.wdom.net/tag/RESTClient)获得更多的使用示例和帮助。<br/>
 更多的**wisdom rest-client**详情，请访问[**Wisdom**](http://www.wdom.net)。
