@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -584,6 +585,7 @@ public class UIUtil
     {
         if (!RESTCache.isCLIRunning())
         {
+            JOptionPane.setDefaultLocale(Locale.US);
             JOptionPane.showMessageDialog(RESTView.getView(), 
                                           msg, 
                                           title, 

@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFileChooser;
@@ -313,6 +314,7 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
 
         if (RESTConst.RM_ALL.equals(item.getText()))
         {
+            JOptionPane.setDefaultLocale(Locale.US);
             int ret = JOptionPane.showConfirmDialog(RESTView.getView(), 
                                                     RESTConst.CONFIRM_RM_ALL, 
                                                     RESTConst.RM_ALL, 

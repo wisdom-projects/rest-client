@@ -24,6 +24,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -266,6 +267,7 @@ public class ReqTabPanel extends JPanel implements ActionListener
 
         if (RESTConst.RM_ALL.equals(item.getName()))
         {
+            JOptionPane.setDefaultLocale(Locale.US);
             int ret = JOptionPane.showConfirmDialog(RESTView.getView(),
                                                     RESTConst.CONFIRM_RM_ALL, 
                                                     RESTConst.RM_ALL,

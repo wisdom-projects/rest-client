@@ -24,6 +24,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JMenuItem;
@@ -73,7 +74,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
 
     private JMenuItem miMvDown = null;
 
-    private JMenuItem miConfig = null;
+    private JMenuItem miEdit = null;
 
     private JMenuItem miRefresh = null;
 
@@ -92,7 +93,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
                 miMvUp.setEnabled(false);
                 miMvDown.setEnabled(false);
                 
-                miConfig.setEnabled(false);
+                miEdit.setEnabled(false);
                 return;
             }
 
@@ -105,7 +106,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
                 miMvUp.setEnabled(false);
                 miMvDown.setEnabled(false);
                 
-                miConfig.setEnabled(false);
+                miEdit.setEnabled(false);
             }
             else
             {
@@ -115,7 +116,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
                 miMvUp.setEnabled(true);
                 miMvDown.setEnabled(true);
                 
-                miConfig.setEnabled(true);
+                miEdit.setEnabled(true);
             }
 
             if (e.isPopupTrigger())
@@ -200,9 +201,9 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
         miMvDown.setName(RESTConst.MOVE_DOWN);
         miMvDown.addActionListener(this);
 
-        miConfig = new JMenuItem(RESTConst.CONFIG);
-        miConfig.setName(RESTConst.CONFIG);
-        miConfig.addActionListener(this);
+        miEdit = new JMenuItem(RESTConst.EDIT);
+        miEdit.setName(RESTConst.EDIT);
+        miEdit.addActionListener(this);
 
         miRefresh = new JMenuItem(RESTConst.REFRESH);
         miRefresh.setName(RESTConst.REFRESH);
@@ -212,7 +213,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
         
         pm = new JPopupMenu();
         pm.add(miRefresh);
-        pm.add(miConfig);
+        pm.add(miEdit);
         pm.addSeparator();
         pm.add(miMvUp);
         pm.add(miMvDown);
@@ -329,6 +330,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
 
         if (RESTConst.RM_ALL.equals(item.getName()))
         {
+            JOptionPane.setDefaultLocale(Locale.US);
             int ret = JOptionPane.showConfirmDialog(RESTView.getView(),
                                                     RESTConst.CONFIRM_RM_ALL, 
                                                     RESTConst.RM_ALL,
@@ -353,7 +355,7 @@ public class HistView extends JPanel implements ActionListener, ListSelectionLis
             return;
         }
 
-        if (RESTConst.CONFIG.equals(item.getName()))
+        if (RESTConst.EDIT.equals(item.getName()))
         {
             HttpHist hist = UIUtil.getSelectedHist(tab, tabMdl);
             if (null == hist)

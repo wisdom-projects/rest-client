@@ -1,6 +1,6 @@
 <i>
 <br/>This tool is developed by individual.
-<br/><br/><b>https://github.com/Wisdom-Projects/rest-client</b>
+<br/><br/><b>http://wdom.net</b>
 <br/><br/>Please contact by e-mail for any insightful feedbacks, feature requests and bugs.
 <br/><br/><b>Author:</b>  Yudong (Dom) Wang
 <br/><br/><b>E-mail:</b>  wisdomtool@qq.com
