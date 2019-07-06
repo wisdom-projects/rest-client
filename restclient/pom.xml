@@ -108,7 +108,7 @@
                             <mainClass>org.wisdom.tool.RESTMain</mainClass>
                         </manifest>
                         <manifestEntries>
-                            <splashscreen-image>org/wisdom/tool/image/logo.png</splashscreen-image>
+                            <splashscreen-image>org/wisdom/tool/image/logo.gif</splashscreen-image>
                         </manifestEntries>
                     </archive>
                 </configuration>
