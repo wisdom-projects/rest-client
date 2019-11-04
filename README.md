@@ -5,7 +5,7 @@
 
 # How it works
 #### 1. Download JAR: [*`restclient.jar`*](https://github.com/Wisdom-Projects/rest-client/blob/master/tools);
-   下载JAR包[`restclient.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools)；
+   下载JAR包[`restclient.jar`](https://github.com/Wisdom-Projects/rest-client/blob/master/tools)，
    如果下载restclient软件遇到问题，请从这里下载：[**软件地址**](https://pan.baidu.com/s/1kId-X-s7nl4MQCK2Z6VHSQ) <br/>
 #### 2. Install `Java 1.7` or higher version;
    使用前请先安装`Java 1.7`或者更高版本；
