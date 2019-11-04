@@ -32,7 +32,8 @@
 # Support
 Please refer to [**the blogs**](http://blog.wdom.net/tag/RESTClient) for more demos and help.<br/>
 For more details about **wisdom rest-client**, please visit [**Wisdom**](http://www.wdom.net).<br/><br/>
+
+如果下载restclient软件遇到问题，请从百度网盘下载：[**软件地址**](https://pan.baidu.com/s/1kId-X-s7nl4MQCK2Z6VHSQ) <br/>
 请参考[**博客文章**](http://blog.wdom.net/tag/RESTClient)获得更多的使用示例和帮助。<br/>
 更多的**wisdom rest-client**详情，请访问[**Wisdom**](http://www.wdom.net) <br/>
-如果下载restclient软件遇到问题，请从百度网盘下载：[**软件地址**](https://pan.baidu.com/s/1kId-X-s7nl4MQCK2Z6VHSQ)
-
+![Wisdom](http://blog.wdom.net/upload/2019/09/6pb9liclg4jbercad2d4hhnj3j.gif)
