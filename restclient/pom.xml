@@ -26,7 +26,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
         <jackson.version>2.10.0</jackson.version>
-        <httpcomponent.version>4.5.2</httpcomponent.version>
+        <httpcomponent.version>4.5.13</httpcomponent.version>
     </properties>
     <dependencies>
         <dependency>
