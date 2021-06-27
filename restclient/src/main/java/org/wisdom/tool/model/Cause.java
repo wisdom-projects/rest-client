@@ -112,7 +112,6 @@ public class Cause implements Serializable
             return sb.toString();
         }
 
-        sb.append(code.getCode()).append(" -- ");
         if (RESTConst.LANG_ZH.equalsIgnoreCase(Locale.getDefault().getLanguage()))
         {
             sb.append(msgZhCN);
