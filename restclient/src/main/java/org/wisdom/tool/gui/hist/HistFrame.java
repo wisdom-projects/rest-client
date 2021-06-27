@@ -66,7 +66,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Mar 4, 2018 8:28:38 PM 
-* @Version    : Wisdom RESTClient V1.2 
+* @Version    : Wisdom RESTClient V1.3 
 */
 public class HistFrame extends JFrame implements ActionListener, ChangeListener
 {
@@ -412,7 +412,6 @@ public class HistFrame extends JFrame implements ActionListener, ChangeListener
         String status = this.txtFldStat.getText();
         if (StringUtils.isNumeric(status))
         {
-            rep.setStatus(StringUtils.substringBefore(rep.getStatus(), " ") + " " + status);
             rep.setStatusCode(Integer.parseInt(status));
         }
         rep.setBody(this.taRepBody.getText());

@@ -27,6 +27,14 @@
         "10006": {
             "message_Zh_CN": "错误的JSON文本。",
             "message_En_US": "Bad json text."
+        },
+        "10007": {
+            "message_Zh_CN": "HTTP请求异常",
+            "message_En_US": "HTTP request exception"
+        },
+        "10008": {
+            "message_Zh_CN": "状态码不一致：<1>",
+            "message_En_US": "Different status code: <1>"
         }
     }
 }

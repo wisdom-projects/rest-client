@@ -24,7 +24,7 @@ import org.wisdom.tool.util.TestUtil;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-18 PM 9:41:08  
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class TestThd extends Thread
 {

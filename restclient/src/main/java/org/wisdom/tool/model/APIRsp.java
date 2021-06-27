@@ -19,7 +19,6 @@ import java.io.Serializable;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
-import org.wisdom.tool.apidoc.APIUtil;
 import org.wisdom.tool.constant.RESTConst;
 import org.wisdom.tool.util.RESTUtil;
 
@@ -29,7 +28,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class APIRsp implements Serializable
 {
@@ -88,7 +87,7 @@ public class APIRsp implements Serializable
         {
             this.code = 0;
         }
-        this.message = APIUtil.getReason(this.code);
+        this.message = rsp.getMessage();
     }
 
     public String getStatus()

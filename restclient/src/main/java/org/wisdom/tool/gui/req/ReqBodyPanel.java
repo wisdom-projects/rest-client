@@ -38,7 +38,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.entity.ContentType;
 import org.wisdom.tool.constant.RESTConst;
 import org.wisdom.tool.gui.util.UIUtil;
 import org.wisdom.tool.model.BodyType;
@@ -51,7 +50,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class ReqBodyPanel extends JPanel implements ActionListener
 {
@@ -179,17 +178,18 @@ public class ReqBodyPanel extends JPanel implements ActionListener
         this.setLayout(new BorderLayout(RESTConst.BORDER_WIDTH, 0));
 
         Vector<String> vtContType = new Vector<String>();
-        vtContType.add(ContentType.APPLICATION_JSON.getMimeType());
-        vtContType.add(ContentType.APPLICATION_XML.getMimeType());
-        vtContType.add(ContentType.APPLICATION_FORM_URLENCODED.getMimeType());
-        vtContType.add(ContentType.TEXT_PLAIN.getMimeType());
-        vtContType.add(ContentType.TEXT_XML.getMimeType());
-        vtContType.add(ContentType.TEXT_HTML.getMimeType());
-        vtContType.add(ContentType.MULTIPART_FORM_DATA.getMimeType());
-        vtContType.add(ContentType.APPLICATION_XHTML_XML.getMimeType());
-        vtContType.add(ContentType.APPLICATION_ATOM_XML.getMimeType());
-        vtContType.add(ContentType.APPLICATION_SVG_XML.getMimeType());
-        vtContType.add(ContentType.APPLICATION_OCTET_STREAM.getMimeType());
+
+        vtContType.add("application/json");
+        vtContType.add("application/xml");
+        vtContType.add("application/x-www-form-urlencoded");
+        vtContType.add("text/plain");
+        vtContType.add("text/xml");
+        vtContType.add("text/html");
+        vtContType.add("multipart/form-data");
+        vtContType.add("application/xhtml+xml");
+        vtContType.add("application/atom+xml");
+        vtContType.add("application/svg+xml");
+        vtContType.add("application/octet-stream");
         
         Vector<String> vtChrset = new Vector<String>();
         vtChrset.add(Charsets.UTF_8.getCname());

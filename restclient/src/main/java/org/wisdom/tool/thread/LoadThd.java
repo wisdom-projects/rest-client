@@ -25,7 +25,7 @@ import org.wisdom.tool.constant.RESTConst;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Feb 3, 2018 8:00:34 PM 
-* @Version    : Wisdom RESTClient V1.2
+* @Version    : Wisdom RESTClient V1.3
 */
 public class LoadThd extends Thread
 {

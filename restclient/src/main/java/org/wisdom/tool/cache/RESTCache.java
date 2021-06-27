@@ -31,7 +31,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com
 * @Date: 2017-07-27 PM 5:01:37 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class RESTCache
 {

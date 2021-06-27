@@ -24,19 +24,15 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.apache.commons.codec.Charsets;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.ReasonPhraseCatalog;
-import org.apache.http.impl.EnglishReasonPhraseCatalog;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.wisdom.tool.cache.RESTCache;
@@ -47,6 +43,7 @@ import org.wisdom.tool.model.APIItem;
 import org.wisdom.tool.model.APIReq;
 import org.wisdom.tool.model.APIRsp;
 import org.wisdom.tool.model.APISum;
+import org.wisdom.tool.model.Charsets;
 import org.wisdom.tool.model.HttpHist;
 import org.wisdom.tool.model.HttpHists;
 import org.wisdom.tool.model.HttpMethod;
@@ -58,7 +55,7 @@ import org.wisdom.tool.util.RESTUtil;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-7-17 PM 1:11:29 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public final class APIUtil
 {
@@ -149,10 +146,10 @@ public final class APIUtil
         {
             // Update JS
             InputStream is = RESTUtil.getInputStream(RESTConst.APIDOC_DATA_JS);
-            String jsTxt = IOUtils.toString(is, Charsets.UTF_8);
+            String jsTxt = IOUtils.toString(is, Charsets.UTF_8.getCname());
             String jsonDoc = RESTUtil.tojsonText(doc);
             jsTxt = StringUtils.replace(jsTxt, RESTConst.LABEL_APIDOC_DATA, jsonDoc);
-            FileUtils.write(new File(RESTUtil.replacePath(RESTConst.APIDOC_DATA_JS)), jsTxt, Charsets.UTF_8);
+            FileUtils.write(new File(RESTUtil.replacePath(RESTConst.APIDOC_DATA_JS)), jsTxt, Charsets.UTF_8.getCname());
             RESTUtil.close(is);
             
             // Copy JS
@@ -383,37 +380,7 @@ public final class APIUtil
         }
         return sb.toString();
     }
-    
-    /**
-    * 
-    * @Title: getReason 
-    * @Description: Get HTTP status reason 
-    * @param @param code
-    * @param @return 
-    * @return String
-    * @throws
-     */
-    public static String getReason(int code)
-    {
-        ReasonPhraseCatalog catalog = EnglishReasonPhraseCatalog.INSTANCE;
-        String reason = StringUtils.EMPTY;
 
-        try
-        {
-            reason = catalog.getReason(code, Locale.getDefault());
-            if (StringUtils.isEmpty(reason))
-            {
-                return StringUtils.EMPTY;
-            }
-        }
-        catch(Exception e)
-        {
-            log.error(e.getMessage(), e);
-        }
-
-        return reason;
-    }
-    
     /**
     * 
     * @Title: sort 

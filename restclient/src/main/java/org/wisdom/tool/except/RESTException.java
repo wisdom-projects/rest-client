@@ -26,7 +26,7 @@ import org.wisdom.tool.model.Results;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-25 PM 8:40:33 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class RESTException extends Exception
 {

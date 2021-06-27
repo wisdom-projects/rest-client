@@ -24,7 +24,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 3:53:19 PM 
-* @Version    : Wisdom RESTClient V1.2 
+* @Version    : Wisdom RESTClient V1.3 
 */
 public class CheckBoxTreeNode extends DefaultMutableTreeNode
 {

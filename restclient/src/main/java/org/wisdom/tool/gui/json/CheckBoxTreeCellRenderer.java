@@ -33,7 +33,7 @@ import javax.swing.tree.TreeCellRenderer;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 4:54:49 PM 
-* @Version    : Wisdom RESTClient V1.2 
+* @Version    : Wisdom RESTClient V1.3 
 */
 public class CheckBoxTreeCellRenderer extends JPanel implements TreeCellRenderer
 {

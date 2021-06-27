@@ -48,7 +48,7 @@ import org.wisdom.tool.thread.RESTThd;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class ReqView extends JPanel implements ActionListener
 {
@@ -302,7 +302,7 @@ public class ReqView extends JPanel implements ActionListener
         @SuppressWarnings("unchecked")
         JComboBox<HttpMethod> cb = (JComboBox<HttpMethod>) src;
         HttpMethod mthd = (HttpMethod) cb.getSelectedItem();
-        if (HttpMethod.POST.equals(mthd) || HttpMethod.PUT.equals(mthd))
+        if (HttpMethod.POST.equals(mthd) || HttpMethod.PUT.equals(mthd) || HttpMethod.DELETE.equals(mthd))
         {
             pnlBody.getCbBodyType().setSelectedIndex(0);
             pnlBody.getCbBodyType().setEnabled(true);

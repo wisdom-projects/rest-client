@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-25 PM 7:58:51 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class Cause implements Serializable
 {
@@ -112,7 +112,6 @@ public class Cause implements Serializable
             return sb.toString();
         }
 
-        sb.append("The cause of the error/failure: ");
         sb.append(code.getCode()).append(" -- ");
         if (RESTConst.LANG_ZH.equalsIgnoreCase(Locale.getDefault().getLanguage()))
         {

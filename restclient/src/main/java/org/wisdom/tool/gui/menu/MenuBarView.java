@@ -50,6 +50,7 @@ import org.wisdom.tool.gui.util.UIUtil;
 import org.wisdom.tool.model.APIDoc;
 import org.wisdom.tool.model.HttpHists;
 import org.wisdom.tool.thread.RESTThdPool;
+import org.wisdom.tool.thread.RerunThd;
 import org.wisdom.tool.thread.TestThd;
 import org.wisdom.tool.util.RESTUtil;
 import org.wisdom.tool.util.TestUtil;
@@ -60,7 +61,7 @@ import org.wisdom.tool.util.TestUtil;
  * @Author: Yudong (Dom) Wang
  * @Email: wisdomtool@qq.com 
  * @Date: Jan 20, 2017 12:30:29 PM 
- * @Version: Wisdom RESTClient V1.2 
+ * @Version: Wisdom RESTClient V1.3 
  */
 public class MenuBarView implements ActionListener, PropertyChangeListener
 {
@@ -70,25 +71,35 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
 
     private JFileChooser fc = null;
 
-    private ProgressMonitor pm = null;
+    private ProgressMonitor pmTest = null;
 
-    private JMenuItem miStart = null;
+    private ProgressMonitor pmRerun = null;
 
-    private JMenuItem miStop = null;
+    private JMenuItem miStartTest = null;
 
-    private HistTask task = null;
+    private JMenuItem miStopTest = null;
+
+    private JMenuItem miStartRerun = null;
+
+    private JMenuItem miStopRerun = null;
+
+    private HistTestTask testTask = null;
+
+    private HistRerunTask rerunTask = null;
 
     private TestThd testThrd = null;
+
+    private RerunThd rerunThrd = null;
 
     private DonateDialog dd = null;
 
     private AboutDialog ad = null;
 
-    class HistTask extends SwingWorker<Void, Void>
+    class HistTestTask extends SwingWorker<Void, Void>
     {
         private HttpHists hists = null;
 
-        public HistTask(HttpHists hists)
+        public HistTestTask(HttpHists hists)
         {
             super();
             this.hists = hists;
@@ -114,9 +125,45 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
         public void done()
         {
             Toolkit.getDefaultToolkit().beep();
-            miStart.setEnabled(true);
-            pm.setProgress(0);
-            pm.close();
+            miStartTest.setEnabled(true);
+            pmTest.setProgress(0);
+            pmTest.close();
+        }
+    }
+
+    class HistRerunTask extends SwingWorker<Void, Void>
+    {
+        private HttpHists hists = null;
+
+        public HistRerunTask(HttpHists hists)
+        {
+            super();
+            this.hists = hists;
+        }
+
+        @Override
+        public Void doInBackground()
+        {
+            int done = 0;
+            int progress = 0;
+            this.setProgress(0);
+            while (progress < hists.getTotal() && !isCancelled())
+            {
+                progress = hists.progress();
+                done = Math.min(progress, hists.getTotal()) * 100 / hists.getTotal();
+                this.setProgress(done);
+                RESTUtil.sleep(RESTConst.TIME_100MS);
+            }
+            return null;
+        }
+
+        @Override
+        public void done()
+        {
+            Toolkit.getDefaultToolkit().beep();
+            miStartRerun.setEnabled(true);
+            pmRerun.setProgress(0);
+            pmRerun.close();
         }
     }
 
@@ -137,6 +184,7 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
     {
         JMenu mnFile = new JMenu(RESTConst.FILE);
         JMenu mnEdit = new JMenu(RESTConst.EDIT);
+        JMenu mnRerun = new JMenu(RESTConst.RERUN);
         JMenu mnTest = new JMenu(RESTConst.TEST);
         JMenu mnDoc = new JMenu(StringUtils.capitalize(RESTConst.APIDOC));
         //JMenu mnTool = new JMenu(RESTConst.TOOLS);
@@ -180,25 +228,45 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
         mnEdit.addSeparator();
         mnEdit.add(miRmHist);
 
+        // Menu of rerun
+        miStartRerun = new JMenuItem(RESTConst.START_RERUN);
+        miStopRerun = new JMenuItem(RESTConst.STOP_RERUN);
+        JMenuItem miRerunReport = new JMenuItem(RESTConst.RERUN_REPORT);
+
+        miStartRerun.setToolTipText(RESTConst.START_RERUN + " " + RESTConst.HIST);
+        miStartRerun.addActionListener(this);
+
+        miStopRerun.setToolTipText(RESTConst.STOP_RERUN + " " + RESTConst.HIST);
+        miStopRerun.addActionListener(this);
+        miStopRerun.setEnabled(false);
+
+        miRerunReport.setToolTipText(RESTConst.DISPLAY + " " + RESTConst.RERUN_REPORT);
+        miRerunReport.addActionListener(this);
+
+        mnRerun.add(miStartRerun);
+        mnRerun.add(miStopRerun);
+        mnRerun.addSeparator();
+        mnRerun.add(miRerunReport);
+
         // Menu of test
-        miStart = new JMenuItem(RESTConst.START_TEST);
-        miStop = new JMenuItem(RESTConst.STOP_TEST);
-        JMenuItem miReport = new JMenuItem(RESTConst.TEST_REPORT);
+        miStartTest = new JMenuItem(RESTConst.START_TEST);
+        miStopTest = new JMenuItem(RESTConst.STOP_TEST);
+        JMenuItem miTestReport = new JMenuItem(RESTConst.TEST_REPORT);
 
-        miStart.setToolTipText(RESTConst.START_TEST + " " + RESTConst.HIST);
-        miStart.addActionListener(this);
+        miStartTest.setToolTipText(RESTConst.START_TEST + " " + RESTConst.HIST);
+        miStartTest.addActionListener(this);
 
-        miStop.setToolTipText(RESTConst.STOP_TEST + " " + RESTConst.HIST);
-        miStop.addActionListener(this);
-        miStop.setEnabled(false);
+        miStopTest.setToolTipText(RESTConst.STOP_TEST + " " + RESTConst.HIST);
+        miStopTest.addActionListener(this);
+        miStopTest.setEnabled(false);
 
-        miReport.setToolTipText(RESTConst.DISPLAY + " " + RESTConst.TEST_REPORT);
-        miReport.addActionListener(this);
+        miTestReport.setToolTipText(RESTConst.DISPLAY + " " + RESTConst.TEST_REPORT);
+        miTestReport.addActionListener(this);
 
-        mnTest.add(miStart);
-        mnTest.add(miStop);
+        mnTest.add(miStartTest);
+        mnTest.add(miStopTest);
         mnTest.addSeparator();
-        mnTest.add(miReport);
+        mnTest.add(miTestReport);
 
         // Menu of API DOC
         JMenuItem miCreate = new JMenuItem(RESTConst.CREATE);
@@ -240,6 +308,7 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
         mb.setBorder(BorderFactory.createEtchedBorder());
         mb.add(mnFile);
         mb.add(mnEdit);
+        mb.add(mnRerun);
         mb.add(mnTest);
         mb.add(mnDoc);
         // mb.add(mnTool);
@@ -327,7 +396,74 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
             return;
         }
     }
-    
+
+    /**
+    * 
+    * @Title: rerunPerformed 
+    * @Description: Rerun Menu Item Performed 
+    * @param @param item
+    * @return void
+    * @throws
+     */
+    private void rerunPerformed(JMenuItem item)
+    {
+        if (RESTConst.START_RERUN.equals(item.getText()))
+        {
+            if (MapUtils.isEmpty(RESTCache.getHists()))
+            {
+                return;
+            }
+
+            miStartRerun.setEnabled(false);
+            miStopRerun.setEnabled(true);
+
+            HttpHists hists = new HttpHists(RESTCache.getHists().values());
+
+            pmRerun = new ProgressMonitor(RESTView.getView(), RESTConst.RERUN_CASE, "", 0, hists.getTotal());
+            pmRerun.setProgress(0);
+
+            rerunTask = new HistRerunTask(hists);
+            rerunTask.addPropertyChangeListener(this);
+            rerunTask.execute();
+
+            rerunThrd = new RerunThd(hists);
+            rerunThrd.setName(RESTConst.RERUN_THREAD);
+            RESTThdPool.getInstance().getPool().submit(rerunThrd);
+        }
+
+        if (RESTConst.STOP_RERUN.equals(item.getText()))
+        {
+            if (null == rerunThrd)
+            {
+                return;
+            }
+
+            try
+            {
+                miStopRerun.setEnabled(false);
+
+                pmRerun.close();
+                rerunTask.cancel(true);
+
+                rerunThrd.getHists().setStop(true);
+                rerunThrd.interrupt();
+
+                miStartRerun.setEnabled(true);
+            }
+            catch(Exception ex)
+            {
+                log.error("Failed to interrupt rerun thread.", ex);
+            }
+        }
+
+        if (RESTConst.RERUN_REPORT.equals(item.getText()))
+        {
+            TestUtil.open(RESTConst.REPORT_HTML, 
+                          RESTConst.MSG_REPORT, 
+                          RESTConst.RERUN_REPORT);
+        }
+    }
+
     /**
     * 
     * @Title: testPerformed 
@@ -345,17 +481,17 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
                 return;
             }
 
-            miStart.setEnabled(false);
-            miStop.setEnabled(true);
+            miStartTest.setEnabled(false);
+            miStopTest.setEnabled(true);
 
             HttpHists hists = new HttpHists(RESTCache.getHists().values());
 
-            pm = new ProgressMonitor(RESTView.getView(), RESTConst.TEST_CASE, "", 0, hists.getTotal());
-            pm.setProgress(0);
+            pmTest = new ProgressMonitor(RESTView.getView(), RESTConst.TEST_CASE, "", 0, hists.getTotal());
+            pmTest.setProgress(0);
 
-            task = new HistTask(hists);
-            task.addPropertyChangeListener(this);
-            task.execute();
+            testTask = new HistTestTask(hists);
+            testTask.addPropertyChangeListener(this);
+            testTask.execute();
 
             testThrd = new TestThd(hists);
             testThrd.setName(RESTConst.TEST_THREAD);
@@ -371,15 +507,15 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
 
             try
             {
-                miStop.setEnabled(false);
+                miStopTest.setEnabled(false);
 
-                pm.close();
-                task.cancel(true);
+                pmTest.close();
+                testTask.cancel(true);
 
                 testThrd.getHists().setStop(true);
                 testThrd.interrupt();
 
-                miStart.setEnabled(true);
+                miStartTest.setEnabled(true);
             }
             catch(Exception ex)
             {
@@ -491,9 +627,52 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
         JMenuItem item = (JMenuItem) (e.getSource());
         this.filePerformed(item);
         this.editPerformed(item);
+        this.rerunPerformed(item);
         this.testPerformed(item);
         this.apiDocPerformed(item);
         this.helpPerformed(item);
+    }
+
+    private void testChange(int progress)
+    {
+        pmTest.setProgress(progress);
+
+        String message = String.format("Completed %d%%.\n", progress * 100 / pmTest.getMaximum());
+        pmTest.setNote(message);
+
+        if (pmTest.isCanceled() || testTask.isDone())
+        {
+            Toolkit.getDefaultToolkit().beep();
+            if (pmTest.isCanceled())
+            {
+                testTask.cancel(true);
+                testThrd.getHists().setStop(true);
+                testThrd.interrupt();
+            }
+            miStartTest.setEnabled(true);
+            miStopTest.setEnabled(false);
+        }
+    }
+
+    private void rerunChange(int progress)
+    {
+        pmRerun.setProgress(progress);
+
+        String message = String.format("Completed %d%%.\n", progress * 100 / pmRerun.getMaximum());
+        pmRerun.setNote(message);
+
+        if (pmRerun.isCanceled() || rerunTask.isDone())
+        {
+            Toolkit.getDefaultToolkit().beep();
+            if (pmRerun.isCanceled())
+            {
+                rerunTask.cancel(true);
+                rerunThrd.getHists().setStop(true);
+                rerunThrd.interrupt();
+            }
+            miStartRerun.setEnabled(true);
+            miStopRerun.setEnabled(false);
+        }
     }
 
     public void propertyChange(PropertyChangeEvent evt)
@@ -504,22 +683,14 @@ public class MenuBarView implements ActionListener, PropertyChangeListener
         }
 
         int progress = (Integer) evt.getNewValue();
-        pm.setProgress(progress);
-
-        String message = String.format("Completed %d%%.\n", progress * 100 / pm.getMaximum());
-        pm.setNote(message);
-
-        if (pm.isCanceled() || task.isDone())
+        if (evt.getSource() instanceof HistTestTask)
         {
-            Toolkit.getDefaultToolkit().beep();
-            if (pm.isCanceled())
-            {
-                task.cancel(true);
-                testThrd.getHists().setStop(true);
-                testThrd.interrupt();
-            }
-            miStart.setEnabled(true);
-            miStop.setEnabled(false);
+            this.testChange(progress);
+        }
+
+        if (evt.getSource() instanceof HistRerunTask)
+        {
+            this.rerunChange(progress);
         }
     }
 }

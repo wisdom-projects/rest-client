@@ -32,7 +32,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.commons.codec.Charsets;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.io.IOUtils;
@@ -50,6 +49,7 @@ import org.wisdom.tool.cache.RESTCache;
 import org.wisdom.tool.constant.RESTConst;
 import org.wisdom.tool.model.Cause;
 import org.wisdom.tool.model.Causes;
+import org.wisdom.tool.model.Charsets;
 import org.wisdom.tool.model.ErrCode;
 import org.wisdom.tool.model.HttpHist;
 import org.wisdom.tool.model.HttpHists;
@@ -74,7 +74,7 @@ import net.htmlparser.jericho.SourceFormatter;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class RESTUtil
 {
@@ -449,7 +449,7 @@ public class RESTUtil
 
             // Format
             OutputFormat format = OutputFormat.createPrettyPrint();
-            format.setEncoding(Charsets.UTF_8.name());
+            format.setEncoding(Charsets.UTF_8.getCname());
 
             // Writer
             StringWriter sw = new StringWriter();
@@ -679,7 +679,7 @@ public class RESTUtil
     
     /**
     * 
-    * @Title: result 
+    * @Title: testResult 
     * @Description: Set test result 
     * @param @param hist
     * @param @param oldRsp
@@ -687,7 +687,7 @@ public class RESTUtil
     * @return void
     * @throws
      */
-    public static void result(HttpHists hists, HttpHist hist, HttpRsp newRsp)
+    public static void testResult(HttpHists hists, HttpHist hist, HttpRsp newRsp)
     {
         Cause cs = null;
 
@@ -774,7 +774,74 @@ public class RESTUtil
         hist.setCause(cs.toString());
         hists.countPass();
     }
+
+    /**
+    * 
+    * @Title: rerunResult 
+    * @Description: Set rerun result 
+    * @param @param hist
+    * @param @param oldRsp
+    * @param @param newRsp 
+    * @return void
+    * @throws
+     */
+    public static void rerunResult(HttpHists hists, HttpHist hist, HttpRsp newRsp)
+    {
+        Cause cs = null;
+
+        HttpRsp oldRsp = hist.getRsp();
+        String oldBdy = oldRsp.getBody();
+        String newBdy = newRsp.getBody();
+        String newMsg = newRsp.getMessage();
+
+        if (null == oldBdy)
+        {
+            oldBdy = StringUtils.EMPTY;
+        }
+
+        if (null == newBdy)
+        {
+            newBdy = StringUtils.EMPTY;
+        }
     
+        Integer oldSC = oldRsp.getStatusCode();
+        Integer newSC = newRsp.getStatusCode();
+
+        hist.setResult(Results.PASS);
+        hist.getRsp().setDate(newRsp.getDate());
+        hist.getRsp().setTime(newRsp.getTime());
+        hist.getRsp().setStatusCode(newSC);
+        hist.getRsp().setMessage(newMsg);
+        hist.getRsp().setRawTxt("");
+        hist.getRsp().setBody("");
+        hist.getRsp().setHeaders(null);
+        hist.getReq().setRawTxt("");
+        hist.getReq().setBody("");
+        hist.getReq().setHeaders(null);
+        hist.getReq().setCookies(null);
+
+        if (null == oldSC || null == newSC)
+        {
+            hist.setResult(Results.ERROR);
+            cs = RESTUtil.getCause(ErrCode.HTTP_REQUEST_ERR);
+            hist.setCause(cs.toString());
+            hists.countErr();
+            return;
+        }
+
+        if (RESTConst.HTTP_OK != newSC)
+        {
+            hist.setResult(Results.FAILURE);
+            hist.setCause(newMsg);
+            hists.countFail();
+            return;
+        }
+
+        cs = RESTUtil.getCause(ErrCode.SUCCESS);
+        hist.setCause(cs.toString());
+        hists.countPass();
+    }
+
     /**
     * 
     * @Title: replacePath 
@@ -1149,7 +1216,7 @@ public class RESTUtil
         try
         {
             InputStream is = RESTUtil.getInputStream(RESTConst.WISDOM_TOOL_USAGE);
-            String jsTxt = IOUtils.toString(is, Charsets.UTF_8);
+            String jsTxt = IOUtils.toString(is, Charsets.UTF_8.getCname());
             RESTUtil.close(is);
             System.out.println(jsTxt);
         }

@@ -13,34 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.wisdom.tool.gui.common;
+package org.wisdom.tool.thread;
 
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
+import org.wisdom.tool.model.HttpHists;
+import org.wisdom.tool.util.TestUtil;
 
 /** 
-* @ClassName: RESTTrustManager 
-* @Description: REST trust manager 
+* @ClassName: RerunThd 
+* @Description: Rerun thread 
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
-* @Date: Jul 26, 2017 5:32:58 PM 
-* @Version: Wisdom RESTClient V1.2 
+* @Date: 2017-07-18 PM 9:41:08  
+* @Version: Wisdom RESTClient V1.3 
 */
-public class RESTTrustManager implements TrustManager, X509TrustManager
+public class RerunThd extends Thread
 {
-    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException
+    private HttpHists hists = null;
+
+    public RerunThd(HttpHists hists)
     {
+        this.hists = hists;
     }
 
-    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException
+    public HttpHists getHists()
     {
+        return hists;
     }
 
-    public X509Certificate[] getAcceptedIssuers()
+    public void setHists(HttpHists hists)
     {
-        return null;
+        this.hists = hists;
+    }
+
+    public void run()
+    {
+        if (null == hists)
+        {
+            return;
+        }
+        TestUtil.rerunCases(hists);
     }
 }

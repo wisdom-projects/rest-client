@@ -21,11 +21,11 @@ package org.wisdom.tool.constant;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class RESTConst
 {
-    public static final String REST_CLIENT_VERSION = "Wisdom RESTClient V1.2";
+    public static final String REST_CLIENT_VERSION = "Wisdom RESTClient V1.3";
 
     public static final String WORK = "work";
 
@@ -197,6 +197,12 @@ public class RESTConst
 
     public static final String STOP_TEST = "Stop Test";
 
+    public static final String START_RERUN = "Start Rerun";
+
+    public static final String STOP_RERUN = "Stop Rerun";
+
+    public static final String RERUN_REPORT = "Rerun Report";
+
     public static final String TEST_REPORT = "Test Report";
 
     public static final String DISPLAY = "Display";
@@ -206,6 +212,8 @@ public class RESTConst
     public static final String HIST = "History";
 
     public static final String TEST = "Test";
+
+    public static final String RERUN = "Rerun";
 
     public static final String EDIT = "Edit";
 
@@ -279,8 +287,10 @@ public class RESTConst
 
     public final static Long TIME_3S = 3000L;
 
+    public final static Long TIME_60S = 60l;
+
     public final static Long TIME_100MS = 100L;
-    
+
     public final static Long TIME_300MS = 300L;
 
     public final static String DEFAULT_HOST = "127.0.0.1";
@@ -289,7 +299,11 @@ public class RESTConst
 
     public final static String TEST_CASE = "Testing historical cases";
 
+    public final static String RERUN_CASE = "Rerunning historical cases";
+
     public final static String TEST_THREAD = "Test Thread";
+
+    public final static String RERUN_THREAD = "Rerun Thread";
 
     public final static String LOAD_THREAD = "Load Thread";
     
@@ -406,4 +420,6 @@ public class RESTConst
     public final static String NEW_HDR = "New " + HEADER;
 
     public final static String REFRESH = "Refresh";
+
+    public final static int HTTP_OK = 200;
 }

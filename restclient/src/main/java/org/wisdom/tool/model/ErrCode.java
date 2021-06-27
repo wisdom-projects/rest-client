@@ -21,7 +21,7 @@ package org.wisdom.tool.model;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-18 PM 3:30:01 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public enum ErrCode
 {
@@ -37,7 +37,11 @@ public enum ErrCode
 
     HTTP_REQUEST_FAILED(10005),
 
-    BAD_JSON(10006);
+    BAD_JSON(10006),
+
+    HTTP_REQUEST_ERR(10007),
+
+    DIFFERENT_STATUS(10008);
 
     private int code;
 

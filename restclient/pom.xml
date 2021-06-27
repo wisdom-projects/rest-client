@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wisdom.tool</groupId>
     <artifactId>restclient</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <description>This is Wisdom RESTClient</description>
     <url>http://www.wdom.net</url>
     <properties>
@@ -64,16 +64,6 @@
             <artifactId>gson</artifactId>
             <version>2.8.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>${httpcomponent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>4.4.5</version>
-        </dependency>
         <!-- jackson begin -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -91,6 +81,11 @@
             <version>${jackson.version}</version>
         </dependency>
         <!-- jackson end -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.9.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

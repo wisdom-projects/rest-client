@@ -13,35 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.wisdom.tool.model;
+package org.wisdom.tool.common;
+
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /** 
-* @ClassName: Results 
-* @Description: HTTP test results 
+* @ClassName: RESTTrustManager 
+* @Description: REST trust manager 
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
-* @Date: 2016-12-18 PM 3:30:01 
+* @Date: Jul 26, 2017 5:32:58 PM 
 * @Version: Wisdom RESTClient V1.3 
 */
-public enum Results
+public class RESTTrustManager implements TrustManager, X509TrustManager
 {
-    FAILURE("failure"), PASS("pass"), ERROR("error");
-
-    private String result;
-
-    private Results(String rs)
+    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException
     {
-        this.result = rs;
     }
 
-    public String getResult()
+    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException
     {
-        return result;
     }
 
-    public void setResult(String result)
+    public X509Certificate[] getAcceptedIssuers()
     {
-        this.result = result;
+        return null;
     }
-
 }

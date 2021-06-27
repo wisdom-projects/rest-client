@@ -21,36 +21,19 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.client.utils.HttpClientUtils;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.wisdom.tool.constant.RESTConst;
-import org.wisdom.tool.gui.common.RESTTrustManager;
-import org.wisdom.tool.model.Charsets;
 import org.wisdom.tool.model.HttpMethod;
 import org.wisdom.tool.model.HttpReq;
 import org.wisdom.tool.model.HttpRsp;
+
+import okhttp3.Headers;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /** 
 * @ClassName: RESTClient 
@@ -58,20 +41,11 @@ import org.wisdom.tool.model.HttpRsp;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public final class RESTClient
 {
     private static Logger log = LogManager.getLogger(RESTClient.class);
-
-    // HTTP client
-    private CloseableHttpClient hc = null;
-
-    // HTTP client builder
-    private HttpClientBuilder cb = null;
-
-    // Request config
-    private RequestConfig rc = null;
 
     // Instance
     private static RESTClient instance = null;
@@ -85,108 +59,31 @@ public final class RESTClient
         return instance;
     }
 
-    private RESTClient()
+    private HttpRsp result(Response resp)
     {
-        SSLContext sc = null;
+        HttpRsp result = new HttpRsp();
         try
         {
-            sc = SSLContext.getInstance(RESTConst.TLS);
-            TrustManager[] trustAllCrts = new TrustManager[] { new RESTTrustManager() };
-            sc.init(null, trustAllCrts, null);
-        }
-        catch(Exception e)
-        {
-            log.error("Failed to initialize trust all certificates.", e);
-        }
+            result.setBody(resp.body().string());
+            result.setStatusCode(resp.code());
+            result.setMessage(resp.message());
+            result.setHeaders(new HashMap<String, String>());
 
-        HostnameVerifier hv = new HostnameVerifier()
-        {
-            public boolean verify(String arg0, SSLSession arg1)
+            Headers hdrs = resp.headers();
+            for (String name : hdrs.names())
             {
-                return true;
-            }
-        };
-
-        rc = RequestConfig.custom()
-             .setConnectTimeout(RESTConst.TIME_OUT)
-             .setConnectionRequestTimeout(RESTConst.TIME_OUT)
-             .setSocketTimeout(RESTConst.TIME_OUT).build();
-
-        this.cb = HttpClients.custom();
-        this.cb.setSSLContext(sc);
-        this.cb.setSSLHostnameVerifier(hv);
-
-        hc = this.cb.build();
-    }
-
-    /**
-    * 
-    * @Title: exec 
-    * @Description: Execute HTTP request 
-    * @param @param hreq
-    * @param @param ureq
-    * @param @return 
-    * @return HttpRsp
-    * @throws
-     */
-    private HttpRsp exec(HttpRequestBase req)
-    {
-        CloseableHttpResponse hr = null;
-        HttpRsp rsp = new HttpRsp();
-
-        try
-        {
-            /* Send HTTP request */
-            hr = hc.execute(req);
-            HttpEntity he = hr.getEntity();
-            if (null != he)
-            {
-                /* Receive HTTP response */
-                String body = EntityUtils.toString(he, Charsets.UTF_8.getCname());
-                if (null == body)
-                {
-                    body = StringUtils.EMPTY;
-                }
-                rsp.setBody(body);
-            }
-            else 
-            {
-                log.warn("HTTP response is null.");
-            }
-
-            hr.setReasonPhrase("");
-            rsp.setStatus(hr.getStatusLine().toString());
-            rsp.setStatusCode(hr.getStatusLine().getStatusCode());
-            rsp.setHeaders(new HashMap<String, String>());
-
-            for (Header hdr : hr.getAllHeaders())
-            {
-                rsp.getHeaders().put(hdr.getName(), hdr.getValue());
+                result.getHeaders().put(name, hdrs.get(name));
             }
         }
-        catch(Throwable e)
+        catch(IOException e)
         {
             log.error("Http request failed.", e);
         } 
-        finally
-        {
-            HttpClientUtils.closeQuietly(hr);
-        }
-
-        return rsp;
+        return result;
     }
-    
-    /**
-    * 
-    * @Title: req 
-    * @Description: Do HTTP request 
-    * @param @param req
-    * @param @return     
-    * @return HttpRsp    
-    * @throws
-     */
+
     public HttpRsp exec(HttpReq req)
-    {        
+    { 
         log.info("Start HTTP request: \r\n" + req);
         long time = System.currentTimeMillis();
         HttpRsp rsp = new HttpRsp();
@@ -210,36 +107,20 @@ public final class RESTClient
             log.error(rsp.getRawTxt());
             return rsp;
         }
-        
+
+        Request request = null; 
+        Request.Builder builder = new Request.Builder()
+                                             .url(req.getUrl());
         try
         {
-            /* Set HTTP method */
-            HttpRequestBase hrb = null;
-            if (HttpMethod.GET.equals(req.getMethod()))
+            String bodyTxt = req.getBody();
+            if (null == bodyTxt)
             {
-                hrb = new HttpGet(req.getUrl());
-            }
-            else if (HttpMethod.POST.equals(req.getMethod()))
-            {
-                hrb = new HttpPost(req.getUrl());
-                ((HttpPost) hrb).setEntity(new StringEntity(req.getBody(), Charsets.UTF_8.getCname()));
-            }
-            else if (HttpMethod.PUT.equals(req.getMethod()))
-            {
-                hrb = new HttpPut(req.getUrl());
-                ((HttpPut) hrb).setEntity(new StringEntity(req.getBody(), Charsets.UTF_8.getCname()));
-            }
-            else if (HttpMethod.DELETE.equals(req.getMethod()))
-            {
-                hrb = new HttpDelete(req.getUrl());
-            }
-            else
-            {
-                rsp.setRawTxt("Unsupported HTTP method: " + req.getMethod());
-                log.error(rsp.getRawTxt());
-                return rsp;
+                bodyTxt = "";
             }
 
+            RequestBody body = RequestBody.create(bodyTxt.getBytes());
+            
             /* Set HTTP headers */
             if (MapUtils.isNotEmpty(req.getHeaders()))
             {
@@ -247,7 +128,7 @@ public final class RESTClient
                 Set<Entry<String, String>> es = hdrs.entrySet();
                 for (Entry<String, String> e : es)
                 {
-                    hrb.setHeader(e.getKey(), e.getValue());
+                    builder.addHeader(e.getKey(), e.getValue());
                 }
             }
 
@@ -265,13 +146,38 @@ public final class RESTClient
                       .append(e.getValue());
                 }
                 String hdrVal = sb.toString().replaceFirst("; ", "");
-                hrb.setHeader(RESTConst.COOKIE, hdrVal);
+                builder.addHeader(RESTConst.COOKIE, hdrVal);
                 req.getHeaders().put(RESTConst.COOKIE, hdrVal);
             }
 
-            /* Execute HTTP request */
-            hrb.setConfig(rc);
-            rsp = this.exec(hrb);
+            /* Set HTTP method */
+            if (HttpMethod.GET.equals(req.getMethod()))
+            {
+                request = builder.build();
+            }
+            else if (HttpMethod.POST.equals(req.getMethod()))
+            {
+                request = builder.post(body).build();
+            }
+            else if (HttpMethod.PUT.equals(req.getMethod()))
+            {
+                request = builder.put(body).build();
+            }
+            else if (HttpMethod.DELETE.equals(req.getMethod()))
+            {
+                request = builder.delete(body).build();
+            }
+            else
+            {
+                rsp.setRawTxt("Unsupported HTTP method: " + req.getMethod());
+                log.error(rsp.getRawTxt());
+                return rsp;
+            }
+
+            Response resp = HTTPClient.client()
+                                      .newCall(request)
+                                      .execute();
+            rsp = this.result(resp);
             rsp.setRawTxt(req.toRawTxt() + rsp.toRawTxt());
         }
         catch(Throwable e)
@@ -283,31 +189,5 @@ public final class RESTClient
         rsp.setTime(System.currentTimeMillis() - time);
         log.info("Done HTTP request: \r\n" + rsp);
         return rsp;
-    }
-
-    /**
-    * 
-    * @Title: close 
-    * @Description: Close REST client connection
-    * @param  
-    * @return void
-    * @throws
-     */
-    public void close()
-    {
-        if (null == this.hc)
-        {
-            return;
-        }
-
-        try
-        {
-            this.hc.close();
-            hc = this.cb.build();
-        }
-        catch(IOException e)
-        {
-            log.error("Failed to close connection.", e);
-        }
     }
 }

@@ -31,7 +31,7 @@ import javax.swing.plaf.ColorUIResource;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 4:43:42 PM 
-* @Version    : Wisdom RESTClient V1.2 
+* @Version    : Wisdom RESTClient V1.3 
 */
 public class CheckBoxTreeLabel extends JLabel
 {

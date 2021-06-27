@@ -22,7 +22,6 @@ import org.wisdom.tool.constant.RESTConst;
 import org.wisdom.tool.gui.RESTView;
 import org.wisdom.tool.gui.req.ReqView;
 import org.wisdom.tool.gui.util.UIUtil;
-import org.wisdom.tool.util.RESTClient;
 
 /** 
 * @ClassName: RESTThd 
@@ -30,7 +29,7 @@ import org.wisdom.tool.util.RESTClient;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-18 PM 9:41:08 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class RESTThd extends Thread
 {
@@ -40,7 +39,6 @@ public class RESTThd extends Thread
     {
         try
         {
-            RESTClient.getInstance().close();
             super.interrupt();
         }
         catch(Throwable e)

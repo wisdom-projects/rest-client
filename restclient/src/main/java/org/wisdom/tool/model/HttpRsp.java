@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-22 PM 10:42:57 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public class HttpRsp implements Serializable
 {
@@ -86,6 +86,8 @@ public class HttpRsp implements Serializable
      */
     private Integer statusCode;
 
+    private String message;
+
     public HttpRsp()
     {
         this.date = RESTUtil.nowDate();
@@ -114,6 +116,7 @@ public class HttpRsp implements Serializable
         this.time = rsp.getTime();
         this.status = rsp.getStatus();
         this.statusCode = rsp.getStatusCode();
+        this.message = rsp.getMessage();
     }
 
     /** 
@@ -242,6 +245,17 @@ public class HttpRsp implements Serializable
     public void setStatusCode(Integer statusCode)
     {
         this.statusCode = statusCode;
+        this.status = "HTTP/1.1 " + statusCode;
+    }
+
+    public String getMessage()
+    {
+        return message;
+    }
+
+    public void setMessage(String message)
+    {
+        this.message = message;
     }
 
     public String toRawTxt()
@@ -283,7 +297,7 @@ public class HttpRsp implements Serializable
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("Http Response [rawTxt=");
+        builder.append("HttpRsp [rawTxt=");
         builder.append(rawTxt);
         builder.append(", body=");
         builder.append(body);
@@ -299,6 +313,8 @@ public class HttpRsp implements Serializable
         builder.append(status);
         builder.append(", statusCode=");
         builder.append(statusCode);
+        builder.append(", message=");
+        builder.append(message);
         builder.append("]");
         return builder.toString();
     }

@@ -26,7 +26,7 @@ import org.wisdom.tool.constant.RESTConst;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-07-18 PM 9:41:08 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public final class RESTThdPool
 {

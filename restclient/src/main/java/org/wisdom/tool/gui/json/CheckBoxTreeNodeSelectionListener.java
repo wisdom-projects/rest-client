@@ -29,7 +29,7 @@ import javax.swing.tree.TreePath;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Feb 26, 2018 5:01:50 PM 
-* @Version    : Wisdom RESTClient V1.2 
+* @Version    : Wisdom RESTClient V1.3 
 */
 public class CheckBoxTreeNodeSelectionListener extends MouseAdapter
 {

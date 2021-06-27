@@ -56,7 +56,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 * @Author     : Dom Wang 
 * @Email      : wisdomtool@qq.com
 * @Date       : Feb 25, 2018 4:43:49 PM 
-* @Version    : Wisdom RESTClient V1.2 
+* @Version    : Wisdom RESTClient V1.3 
 */
 public class JSONTree extends JPanel implements ActionListener
 {

@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
-import org.apache.commons.codec.Charsets;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -29,6 +28,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.wisdom.tool.constant.RESTConst;
 import org.wisdom.tool.gui.util.UIUtil;
+import org.wisdom.tool.model.Charsets;
 import org.wisdom.tool.model.ErrCode;
 import org.wisdom.tool.model.HttpHist;
 import org.wisdom.tool.model.HttpHists;
@@ -43,7 +43,7 @@ import org.wisdom.tool.thread.TestThd;
 * @Author: Yudong (Dom) Wang
 * @Email: wisdomtool@qq.com 
 * @Date: 2017-7-17 PM 1:11:29 
-* @Version: Wisdom RESTClient V1.2 
+* @Version: Wisdom RESTClient V1.3 
 */
 public final class TestUtil
 {
@@ -84,7 +84,47 @@ public final class TestUtil
 
             HttpReq req = hist.getReq();
             HttpRsp rsp = RESTClient.getInstance().exec(req);
-            RESTUtil.result(hists, hist, rsp);
+            RESTUtil.testResult(hists, hist, rsp);
+        }
+        report(hists);
+    }
+
+    /**
+    * 
+    * @Title: run 
+    * @Description: Rerun cases 
+    * @param @param hists
+    * @param @return    
+    * @return void    
+    * @throws
+     */
+    public static void rerunCases(HttpHists hists)
+    {
+        if (null == hists || CollectionUtils.isEmpty(hists.getHists()))
+        {
+            return;
+        }
+
+        List<HttpHist> histLst = hists.getHists();
+        hists.setTotal(histLst.size());
+        for (HttpHist hist : histLst)
+        {
+            if (hists.isStop())
+            {
+                hists.reset();
+                return;
+            }
+
+            if (null == hist.getReq() || null == hist.getRsp())
+            {
+                hist.setCause(RESTUtil.getCause(ErrCode.BAD_CASE).toString());
+                hists.countErr();
+                continue;
+            }
+
+            HttpReq req = hist.getReq();
+            HttpRsp rsp = RESTClient.getInstance().exec(req);
+            RESTUtil.rerunResult(hists, hist, rsp);
         }
         report(hists);
     }
@@ -103,19 +143,19 @@ public final class TestUtil
         {
             // Update JS
             InputStream is = RESTUtil.getInputStream(RESTConst.REPORT_JS);
-            String jsTxt = IOUtils.toString(is, Charsets.UTF_8);
+            String jsTxt = IOUtils.toString(is, Charsets.UTF_8.getCname());
             jsTxt = jsTxt.replaceFirst(RESTConst.LABEL_REPORT_DATA, RESTUtil.tojsonText(hists));
-            FileUtils.write(new File(RESTUtil.replacePath(RESTConst.REPORT_JS)), jsTxt, Charsets.UTF_8);
+            FileUtils.write(new File(RESTUtil.replacePath(RESTConst.REPORT_JS)), jsTxt, Charsets.UTF_8.getCname());
             RESTUtil.close(is);
             
             // Update HTML
             is = RESTUtil.getInputStream(RESTConst.REPORT_HTML);
-            String htmlTxt = IOUtils.toString(is, Charsets.UTF_8);
+            String htmlTxt = IOUtils.toString(is, Charsets.UTF_8.getCname());
             htmlTxt = htmlTxt.replaceFirst(RESTConst.LABEL_TOTAL, String.valueOf(hists.getTotal()));
             htmlTxt = htmlTxt.replaceFirst(RESTConst.LABEL_PASSES, String.valueOf(hists.getPasses()));
             htmlTxt = htmlTxt.replaceFirst(RESTConst.LABEL_FAILURES, String.valueOf(hists.getFailures()));
             htmlTxt = htmlTxt.replaceFirst(RESTConst.LABEL_ERRORS, String.valueOf(hists.getErrors()));
-            FileUtils.write(new File(RESTUtil.replacePath(RESTConst.REPORT_HTML)), htmlTxt, Charsets.UTF_8);
+            FileUtils.write(new File(RESTUtil.replacePath(RESTConst.REPORT_HTML)), htmlTxt, Charsets.UTF_8.getCname());
             RESTUtil.close(is);
             
             // Copy file
