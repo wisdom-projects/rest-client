@@ -422,4 +422,6 @@ public class RESTConst
     public final static String REFRESH = "Refresh";
 
     public final static int HTTP_OK = 200;
+
+    public final static int HTTP_ERR_BASE = 400;
 }

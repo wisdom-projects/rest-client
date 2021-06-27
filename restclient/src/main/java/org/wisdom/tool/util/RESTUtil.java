@@ -829,7 +829,7 @@ public class RESTUtil
             return;
         }
 
-        if (RESTConst.HTTP_OK != newSC)
+        if (newSC >= RESTConst.HTTP_ERR_BASE)
         {
             hist.setResult(Results.FAILURE);
             hist.setCause(newMsg);
